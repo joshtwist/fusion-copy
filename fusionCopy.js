@@ -12,6 +12,10 @@ function FusionCopy(sourceVolumeName, targetFolder)
     var sourceVolumeName = sourceVolumeName;
     var targetFolder = targetFolder;
 
+    if (!fs.existsSync(targetFolder)){
+        throw new Error(`Destination folder '${targetFolder}' does not exist`);
+    }
+
     var scan = {
         volumes: 0,
         fileGroups: 0,
@@ -84,7 +88,7 @@ function FusionCopy(sourceVolumeName, targetFolder)
         var scb = createSafeCallback(callback, fileGroups.length);
     
         fileGroups.forEach(fg => {
-            var dir = `${targetFolder}/${fg.date} Fusion`;
+            var dir = path.join(targetFolder, `${fg.date} Fusion`);
             if (!fs.existsSync(dir)) {
                 fs.mkdirSync(dir);
             }
@@ -95,7 +99,7 @@ function FusionCopy(sourceVolumeName, targetFolder)
                 suffix = "(Video)"
             }
     
-            fg.targetFolder = `${dir}/${fg.number} ${suffix}`;
+            fg.targetFolder = path.join(dir, `${fg.number} ${suffix}`);
             if (!fs.existsSync(fg.targetFolder)) {
                 fs.mkdirSync(fg.targetFolder);
             }
@@ -115,7 +119,7 @@ function FusionCopy(sourceVolumeName, targetFolder)
         fileGroups.forEach(fileGroup => {
             fileGroup.files.forEach(file => {
                 var fg = fileGroup;
-                var destination = fg.targetFolder + "/" + path.basename(file);
+                var destination = path.join(fg.targetFolder, path.basename(file));
                 fs.copySync(file, destination, { preserveTimestamps : true }, (err) => {
                     if (err) {
                         throw(err);
@@ -211,6 +215,9 @@ function FusionCopy(sourceVolumeName, targetFolder)
     var _go = function()
     {
         getDrives(sourceVolumeName, (drives) => {
+            if (drives.length === 0) {
+                throw new Error(`No drives matching '${sourceVolumeName}' found.`);
+            }
             findMatchingFiles(drives, (files) => {
                 processFilesIntoFileGroups(files, fileGroups => {
                     scan.fileGroups = fileGroups.length;

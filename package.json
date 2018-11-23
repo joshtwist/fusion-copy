@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "cli-progress": "^2.1.0",
+    "commander": "^2.19.0",
     "dateformat": "^3.0.3",
     "drivelist": "^6.4.3",
     "fs-extra": "^7.0.1",
