@@ -1,12 +1,19 @@
 {
   "name": "fusion-copy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Go Pro Fusion File Import",
   "homepage": "https://github.com/joshtwist/fusion-copy",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "gopro",
+    "fusion",
+    "video",
+    "360",
+    "workflow"
+  ],
   "author": "",
   "license": "ISC",
   "bin": {
