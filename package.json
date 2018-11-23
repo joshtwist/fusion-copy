@@ -1,0 +1,21 @@
+{
+  "name": "fusion-copy",
+  "version": "0.1.0",
+  "description": "Go Pro Fusion File Import",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "fusion-copy": "./index.js"
+  },
+  "dependencies": {
+    "cli-progress": "^2.1.0",
+    "dateformat": "^3.0.3",
+    "drivelist": "^6.4.3",
+    "fs-extra": "^7.0.1",
+    "glob": "^7.1.3"
+  }
+}
