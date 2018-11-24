@@ -43,7 +43,7 @@ First, give your front and back SD cards a name, I called both of mine "FusionSD
 
 If you haven't already, get yourself some fast Micro SD card readers. 
 
-I got two of these from Amazon: https://www.amazon.com/gp/product/B01787QU9M/ and one of these nice Anker USB hubs: https://www.amazon.com/gp/product/B00O0KISQE/
+I got two of these from Amazon: https://amzn.to/2TDv1Lg  and one of these nice Anker USB hubs: https://amzn.to/2znR68b
 
 ![Anker USB with two fast SD card readers](https://s3-us-west-2.amazonaws.com/mlmrg/anker_usb.png)
 
